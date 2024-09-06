@@ -23,5 +23,5 @@ import this
 print(this)
 ```
 
-5. At last you only need yourself, discipline and consistency!!
+5. At last you need yourself, discipline and consistency!!
 
