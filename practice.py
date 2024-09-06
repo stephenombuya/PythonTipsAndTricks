@@ -917,31 +917,208 @@
 
 # Convert Picture to Grey Scale
 
-import cv2 as cv
+# import cv2 as cv
 
-img = cv.imread('python.jpeg')
+# img = cv.imread('python.jpeg')
 
-# show the original image
+# # show the original image
 
-img1 = cv.imshow('Original', img)
-cv.waitKey(5)
+# img1 = cv.imshow('Original', img)
+# cv.waitKey(5)
 
-# Converting image to Gray
+# # Converting image to Gray
 
-grayed_img = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
+# grayed_img = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
 
-# Show grayed-out image
+# # Show grayed-out image
 
-img2 = cv.imshow('grayed_image', grayed_img)
-cv.waitKey(5000)
+# img2 = cv.imshow('grayed_image', grayed_img)
+# cv.waitKey(5000)
 
-#Save image
-cv.imwrite('grayed.jpg', grayed_img)
-
-
+# #Save image
+# cv.imwrite('grayed.jpg', grayed_img)
 
 
+# Time it with timeit
+
+# import timeit
+
+
+# def timer(code):
+#     tm = timeit.timeit(code,number=10000)
+#     return f'Execution time is {tm:.2f} seconds.' 
+ 
+# if __name__ == "__main__":
+#  print(timer('sum(num**2 for num in range(10000))'))
+
+
+# Shortening URL with Python
+
+# import pyshorteners
+
+
+# def shorter_Url(s: str):
+#     ps = pyshorteners.Shortener()
+#     short_url = ps.tinyurl.short(s)
+#     return "The shorter url is ", short_url
+
+# print(shorter_Url('https://us-east-1.console.aws.amazon.com/ec2/home?region=us-east-1#SecurityGroups:'))
+
+
+# The Round Function
+# import math
+
+# num = 367.2781
+
+# print(round(num, 1))
+
+# # Round up to the nearest integer
+# print(math.ceil(num))
+
+# # Round down to the nearest integer
+# print(math.floor(num))
+
+
+# Convert PDF Files to Doc
+# from pdf2docx import Converter 
+
+# # path to your pdf file
+# pdf = 'file1.pdf'
+
+# # path to where your doc file will be saved
+# word_file = 'file1.docx'
+
+# #instantiate converter
+# cv = Converter(pdf)
+# cv.convert(word_file)
+
+# #close file
+# cv.close()
+
+
+#  Text from PDF File
+# import PyPDF2
+
+# # Open a pdf file
+# pdf_file = open('file1.pdf', 'rb')
+
+# # Read pdf reader 
+# read_file = PyPDF2.PdfReader(pdf_file)
+
+# # Read from a specified page 
+# page = read_file.pages[2]
+
+# # extracting text from page 
+# print(page.extract_text())
+
+# # closing pdf file
+# pdf_file.close()
+
+
+
+#  Libraries Locations
+
+# import pyshorteners
+
+# print(pyshorteners)
 
 
 
 
+
+# Create a Barcode
+
+# from barcode import ISBN13
+# from barcode.writer import ImageWriter
+# from PIL import Image
+
+
+# num = '979113445319' 
+
+# # saving image as png
+# bar_code = ISBN13(num, writer=ImageWriter())
+
+
+# # save image
+# bar_code.save('bar_code')
+
+
+# #read the image using pillow
+# img = Image.open("bar_code.png")
+# img.show()
+
+
+# Indices Using Len & Range Functions
+
+# cars_list = ['Ferrari', 'Honda', 'Mercedes']
+
+# for car in range(len(cars_list)):
+#     print(car, cars_list[car])
+
+
+
+
+# Convert Text to Emoji
+# Convert Emoji to Text
+
+# import demoji
+# import emoji
+
+
+# emoji_str = "I love playing Need For Speed Most Wanted🚘🚘🚘. It makes me happy!😎"
+
+# emoji_example = "I love :orange_heart: learning Python :snake: on a daily basis!, what about you? :smiling_face_with_smiling_eyes:"
+
+# emoji1 = emoji.emojize(emoji_example)
+
+# print(emoji1)
+
+# print("\n")
+
+# list1 = list(demoji.findall(emoji_str))
+# print(list1)
+
+# emoji_list = list(emoji.EMOJI_DATA.keys())
+
+# for emoji_char in emoji_list:
+#     print(emoji_char)
+
+# emoji_names = list(emoji.EMOJI_DATA.values())
+
+# for emoji_name in emoji_names:
+#     print(emoji_name)
+
+
+import requests
+
+# Define the function for currency conversion
+def currency_converter():
+    # Enter the amount to convert
+    amount = int(input("Please enter amount to convert: "))
+
+    # currency code of the amount to convert
+    from_currency = input("Enter the currency code of the amount you are converting: ").upper()
+
+    # currency code of the amount to convert to
+    to_currency = input("Enter the currency code you are converting to: ").upper()
+
+    # Make a request to a currency API
+    url = f'https://api.exchangerate-api.com/v4/latest/{from_currency}'
+    
+    try:
+        # Get the conversion rate 
+        response = requests.get(url, verify=True)
+        data = response.json()
+
+        if to_currency in data['rates']:
+            # Calculate the converted amount
+            converted_amount = amount * data['rates'][to_currency]
+            return f'\nThe amount is {converted_amount:.2f} and the currency is {to_currency}'
+        else:
+            return f'\nCurrency {to_currency} not found!'
+    
+    except Exception as e:
+        return f'Error occurred: {str(e)}'
+
+# Call the function
+print(currency_converter())
