@@ -1089,36 +1089,227 @@
 #     print(emoji_name)
 
 
-import requests
+# import requests
 
-# Define the function for currency conversion
-def currency_converter():
-    # Enter the amount to convert
-    amount = int(input("Please enter amount to convert: "))
+# # Define the function for currency conversion
+# def currency_converter():
+#     # Enter the amount to convert
+#     amount = int(input("Please enter amount to convert: "))
 
-    # currency code of the amount to convert
-    from_currency = input("Enter the currency code of the amount you are converting: ").upper()
+#     # currency code of the amount to convert
+#     from_currency = input("Enter the currency code of the amount you are converting: ").upper()
 
-    # currency code of the amount to convert to
-    to_currency = input("Enter the currency code you are converting to: ").upper()
+#     # currency code of the amount to convert to
+#     to_currency = input("Enter the currency code you are converting to: ").upper()
 
-    # Make a request to a currency API
-    url = f'https://api.exchangerate-api.com/v4/latest/{from_currency}'
+#     # Make a request to a currency API
+#     url = f'https://api.exchangerate-api.com/v4/latest/{from_currency}'
     
+#     try:
+#         # Get the conversion rate 
+#         response = requests.get(url, verify=True)
+#         data = response.json()
+
+#         if to_currency in data['rates']:
+#             # Calculate the converted amount
+#             converted_amount = amount * data['rates'][to_currency]
+#             return f'\nThe amount is {converted_amount:.2f} and the currency is {to_currency}'
+#         else:
+#             return f'\nCurrency {to_currency} not found!'
+    
+#     except Exception as e:
+#         return f'Error occurred: {str(e)}'
+
+# # Call the function
+# print(currency_converter())
+
+
+# Generate Custom Font
+
+# import pyfiglet as pf
+
+# text = pf.figlet_format("I love Maria", font="puffy")
+
+# print(text)
+
+# To get a list of cool fonts run the below line
+# print(pf.FigletFont.getFonts())
+
+
+
+# Language Detector
+
+# from langdetect import detect
+
+# language1 = detect('¿Qué te gusta hacer')
+
+# language2 =  detect('Nyasae no omuya')
+
+
+# print('This is the Spanish language shortened by: ',language1)
+
+# print('This is the Kisii language shortened by: ',language2)
+
+
+
+# Refresh URL with Selenium
+# import time
+# from selenium import webdriver
+# from selenium.webdriver.chrome.service import Service
+# from webdriver_manager.chrome import ChromeDriverManager
+
+# url = "https://www.youtube.com/"
+
+# driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
+
+# driver.get(url=url)
+
+# time.sleep(10)
+# driver.refresh()
+
+
+# Substring of a String
+
+# positive_statement = "Python is a multi-purpose, easy-to-learn, enjoyable programming language!"
+
+# # Way 1
+
+# if 'enjoyable' in positive_statement:
+#     print('enjoyable is a substring of positive_statement')
+# else:
+#     print('enjoyable is not a substring of positive_statement')
+
+
+# # Way 2
+
+# if 'enjoyable' not in positive_statement:
+#     print('enjoyable is not a substring of positive_statement')
+# else:
+#     print('enjoyable is a substring of positive_statement')
+
+
+# # Let's find the index of the substring in the string given
+
+# print('The index of the substring in the string given is:', positive_statement.find('enjoyable'))
+
+
+# Difference Between Two Lists
+
+# even_numbers = [0, 2, 4, 6, 8, 10]
+# prime_numbers = [2, 3, 5, 7, 11, 13]
+
+
+# # Way 1
+
+# difference1 = set(even_numbers).difference(set(prime_numbers))
+
+# print(list(difference1))
+
+
+# print("==============================")
+
+# # Way 2
+# # The easiest way
+
+# difference2 = [number for number in even_numbers if number not in prime_numbers]
+
+# print(difference2)
+
+
+
+# Sorting a List of Dictionaries
+# from operator import itemgetter
+
+# countries = [{"name":"Britain", "population":130000}, {"name":"Kenya", "population":26000},
+#              {"name":"Zambia", "population":200000}, {"name":"China", "population":1000000},
+#              {"name":"Mauritius", "population":459580}, {"name":"Finland", "population":56093}]
+
+# # Sort according to country's name
+# sorted_countries1 = sorted(countries, key=itemgetter('name')) 
+
+# # Sort according to country's population
+# sorted_countries2 = sorted(countries, key=itemgetter('population'))
+
+# print(sorted_countries1)
+# print("\n")
+# print(sorted_countries2)
+
+
+# Bytes to Strings
+
+# s = b'Practicing Python is a cool way of learning it!'
+
+# print(type(s))
+
+
+# # Way 1
+# str1 = str(s,"UTF-8")
+# print("\n")
+
+# print("The string", str1, "is of type", type(str1))
+
+# # Way 2
+# str2 = s.decode()
+# print("=====================================================")
+
+# print("The string", str2, "is of type", type(str2))
+
+
+# Multiple Input from User
+# import speech_recognition as sr
+
+# your_cars = [name for name in input("Enter multiple cars: ").split(sep=',')]
+
+# print(your_cars)
+
+# def listen_for_input():
+#     r = sr.Recognizer()
+#     with sr.Microphone() as source:
+#         print("Say something...")
+#         audio = r.listen(source)
+
+#     try:
+#         text = r.recognize_google(audio)
+#         print("You said: " + text)
+#         return text
+#     except sr.UnknownValueError:
+#         print("Could not understand audio")
+#     except sr.RequestError as e:
+#         print("Could not request results from Google Speech Recognition service; {0}".format(e))
+
+# # Example usage
+# user_input = listen_for_input()
+# print("User input:", user_input)
+
+
+
+
+# The _iter_() Function
+
+cars = ['Volkswagen', "Lamborghini", 'Toyota']
+
+iter_object = iter(cars)
+
+while True:
     try:
-        # Get the conversion rate 
-        response = requests.get(url, verify=True)
-        data = response.json()
+        print(next(iter_object))
+    except:
+        break
 
-        if to_currency in data['rates']:
-            # Calculate the converted amount
-            converted_amount = amount * data['rates'][to_currency]
-            return f'\nThe amount is {converted_amount:.2f} and the currency is {to_currency}'
-        else:
-            return f'\nCurrency {to_currency} not found!'
-    
-    except Exception as e:
-        return f'Error occurred: {str(e)}'
 
-# Call the function
-print(currency_converter())
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
