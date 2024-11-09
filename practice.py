@@ -1286,16 +1286,49 @@
 
 # The _iter_() Function
 
-cars = ['Volkswagen', "Lamborghini", 'Toyota']
+# cars = ['Volkswagen', "Lamborghini", 'Toyota']
 
-iter_object = iter(cars)
+# iter_object = iter(cars)
 
-while True:
-    try:
-        print(next(iter_object))
-    except:
-        break
+# while True:
+#     try:
+#         print(next(iter_object))
+#     except:
+#         break
 
+
+
+
+# list1 = ['club', 'country']
+# list2 = ['Liverpool', 'England']
+
+
+# dict1 = dict(zip(list1,list2))
+
+# print(dict1)
+
+
+
+# from itertools import permutations
+
+# def get_permutations(s: str):
+#     arr = []
+#     for i in permutations(s):
+#         arr.append(''.join(i))
+
+#     return arr
+
+# print(get_permutations('KES'))
+
+
+
+
+
+# cars = [ 'Mercedes Benz', 'Toyota Landcruiser', 'Volkswagen Touareg’, ‘Nissan Patrol']
+
+# car, *cars_with_v8_engines = cars
+# print(car)
+# print(cars_with_v8_engines)
 
 
 
