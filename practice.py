@@ -1331,7 +1331,21 @@
 # print(cars_with_v8_engines)
 
 
+# from statistics import *
 
+# data = [2, 3, 5, 7, 11, 13, 17, 19, 23, 23, 29, 31]
+
+# mean = mean(data)
+# print("The mean of the given data is",mean)
+
+# mode = mode(data)
+# print("The mode of the given data is",mode)
+
+# stdev = stdev(data)
+# print("The standard deviation of the given data is",stdev)
+
+# variance = variance(data)
+# print("The variance of the given data is",variance)
 
 
 
