@@ -29,7 +29,8 @@ This project is not just a set of random exercises — it is a **progressive lea
 
 ##  Project Structure
 
-`PythonTipsAndTricks/
+```
+PythonTipsAndTricks/
 │── exercises/
 │   ├── basics/
 │   ├── intermediate/
@@ -48,7 +49,8 @@ This project is not just a set of random exercises — it is a **progressive lea
 │   └── test_exercises.py
 │
 │── README.md
-│── requirements.txt` 
+│── requirements.txt
+```
 
 ----------
 
